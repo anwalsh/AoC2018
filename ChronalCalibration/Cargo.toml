@@ -1,0 +1,6 @@
+[package]
+name = "ChronalCalibration"
+version = "0.1.0"
+authors = ["Andy Walsh <andyjasonwalsh@gmail.com>"]
+
+[dependencies]
