@@ -1,1 +1,1 @@
-"# AoC2018 Solutions" 
+AoC2018 Solutions 
