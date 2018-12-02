@@ -10,7 +10,7 @@ fn main() {
     seen.insert(0);
 
     for line in buf_read.lines() {
-        let line = line.expect("Unable to read line.");
+        let line = line.unwrap();
         input.push(line.parse().unwrap());
     }
 
