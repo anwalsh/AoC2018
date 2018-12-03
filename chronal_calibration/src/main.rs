@@ -6,8 +6,6 @@ fn main() {
     let mut input: Vec<isize> = Vec::new();
     let file = File::open("./data/input.txt").expect("Unable to open file.");
     let buf_read = BufReader::new(file);
-    let mut seen = HashSet::new();
-    seen.insert(0);
 
     for line in buf_read.lines() {
         let line = line.unwrap();
