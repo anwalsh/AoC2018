@@ -55,8 +55,19 @@ fn find_box_pair(input: &Vec<String>) -> String {
 
     for (index, id) in input.iter().enumerate() {
         for id_two in input.iter().skip(index + 1) {
-            if id.chars().zip(id_two.chars()).filter(|(ix, iy)| ix != iy).count() == 1 {
-                common = id.chars().zip(id_two.chars()).filter(|(ix, iy)| ix == iy).map(|(ix, _)| ix).collect();
+            if id
+                .chars()
+                .zip(id_two.chars())
+                .filter(|(ix, iy)| ix != iy)
+                .count()
+                == 1
+            {
+                common = id
+                    .chars()
+                    .zip(id_two.chars())
+                    .filter(|(ix, iy)| ix == iy)
+                    .map(|(ix, _)| ix)
+                    .collect();
             }
         }
     }
