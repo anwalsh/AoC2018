@@ -12,6 +12,8 @@ fn main() {
 
     let checksum = generate_checksum(&input);
     println!("Checksum is: {}", checksum);
+    let common = find_box_pair(&input);
+    println!("The letters in common between the two IDs are: {}", common);
 }
 
 fn generate_checksum(input: &Vec<String>) -> i64 {
@@ -46,4 +48,17 @@ fn generate_checksum(input: &Vec<String>) -> i64 {
 
 fn calculate_checksum(x: i64, y: i64) -> i64 {
     x * y
+}
+
+fn find_box_pair(input: &Vec<String>) -> String {
+    let mut common: String = String::new();
+
+    for (index, id) in input.iter().enumerate() {
+        for id_two in input.iter().skip(index + 1) {
+            if id.chars().zip(id_two.chars()).filter(|(ix, iy)| ix != iy).count() == 1 {
+                common = id.chars().zip(id_two.chars()).filter(|(ix, iy)| ix == iy).map(|(ix, _)| ix).collect();
+            }
+        }
+    }
+    common
 }
