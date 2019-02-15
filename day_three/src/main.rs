@@ -10,9 +10,25 @@ fn main() {
         input.push(line.parse().unwrap());
     }
 
-    // I think creating a two dimensional vec with 0s for each value initially
     let fabric = vec![vec![0; 1000]; 1000];
 
-    // Claims depicted by 1
-    // Overlapping claims depicted by 2
+    // for (_y, _row) in fabric.iter().enumerate() {
+    //     println!("{:?}", _row);
+    // }
+}
+
+fn plot_claims(x: i32, y: i32, claim_x: i32, claim_y: i32) {
+    // Input appears as below 
+    // #1 @ 604,100: 17x27
+    // 604 from left edge, 100 from the top edge, and 17x27 wide
+    // #2 @ 861,26: 23x24
+    // 861 from the left, 26 from the top, and 23x24 wide.
+}
+
+fn parse_line(input: String) {
+    // Ignore the claim number and @ symbol. For the plot pass the remaining string as variables
+    // to plot claims where the underlying plot will be changed to the following:
+    // - 0 (default) unclaimed fabric
+    // - 1 claimed fabric
+    // - 2 overlapping fabric
 }
