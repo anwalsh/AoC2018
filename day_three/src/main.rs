@@ -18,7 +18,7 @@ fn main() {
 }
 
 fn plot_claims(x: i32, y: i32, claim_x: i32, claim_y: i32) {
-    // Input appears as below 
+    // Input appears as below
     // #1 @ 604,100: 17x27
     // 604 from left edge, 100 from the top edge, and 17x27 wide
     // #2 @ 861,26: 23x24
