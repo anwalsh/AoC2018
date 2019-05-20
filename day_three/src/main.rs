@@ -1,6 +1,24 @@
 use std::fs::File;
 use std::io::{BufRead, BufReader};
 
+struct Point {
+    x: u32,
+    y: u32,
+}
+
+enum ClaimState {
+    Empty,
+    Taken,
+    Overlapping,
+}
+
+struct Claim {
+    width: u32,
+    height: u32,
+}
+
+// TODO: Implement a encapsulating data structure which holds Claim_Id, Point, ClaimState, and Claim
+
 fn main() {
     let file = File::open("./data/input.txt").expect("Unable to open file.");
     let buf_read = BufReader::new(file);
@@ -32,3 +50,5 @@ fn parse_line(input: String) {
     // - 1 claimed fabric
     // - 2 overlapping fabric
 }
+
+// TODO: Implement tests for two to four line parses and appropriately populating the data structure
