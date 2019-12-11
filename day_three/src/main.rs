@@ -1,23 +1,29 @@
 use std::fs::File;
 use std::io::{BufRead, BufReader};
 
-struct Point {
-    x: u32,
-    y: u32,
-}
-
-enum ClaimState {
+#[derive(Debug, PartialEq)]
+enum PointState {
     Empty,
     Taken,
     Overlapping,
 }
 
+#[derive(Debug, PartialEq)]
+struct Point {
+    state: PointState,
+    x: u32,
+    y: u32,
+}
+
+#[derive(Debug, PartialEq)]
 struct Claim {
+    id: u32,
+    origin: Point,
     width: u32,
     height: u32,
 }
 
-// TODO: Implement a encapsulating data structure which holds Claim_Id, Point, ClaimState, and Claim
+// impl a new function for Claim
 
 fn main() {
     let file = File::open("./data/input.txt").expect("Unable to open file.");
@@ -28,27 +34,42 @@ fn main() {
         input.push(line.parse().unwrap());
     }
 
+    // Create graph representing the fabric
     let fabric = vec![vec![0; 1000]; 1000];
-
-    // for (_y, _row) in fabric.iter().enumerate() {
-    //     println!("{:?}", _row);
-    // }
 }
 
-fn plot_claims(x: i32, y: i32, claim_x: i32, claim_y: i32) {
-    // Input appears as below
-    // #1 @ 604,100: 17x27
-    // 604 from left edge, 100 from the top edge, and 17x27 wide
-    // #2 @ 861,26: 23x24
-    // 861 from the left, 26 from the top, and 23x24 wide.
+fn plot_claims() {
+    // Takes a Claim as an argument and plots said claim.
 }
 
-fn parse_line(input: String) {
-    // Ignore the claim number and @ symbol. For the plot pass the remaining string as variables
-    // to plot claims where the underlying plot will be changed to the following:
-    // - 0 (default) unclaimed fabric
-    // - 1 claimed fabric
-    // - 2 overlapping fabric
+fn set_claim_state() {}
+
+fn parse_claim(input: String) -> Claim {
+    // Input String will look like this: "#1 @ 604,100: 17x27"
+
+    return parsed_claim;
 }
 
-// TODO: Implement tests for two to four line parses and appropriately populating the data structure
+#[cfg(test)]
+mod tests {
+    use super::*;
+
+    #[test]
+    fn parse_claim_test() {
+        // Test for claim parsing
+        // remove and replace with Claim::new() when implemented
+        let mut test_claim: Claim = Claim {
+            id: 1,
+            origin: Point {
+                state: PointState::Empty,
+                x: 604,
+                y: 100,
+            },
+            width: 17,
+            height: 27,
+        };
+
+        let test_input: String = "#1 @ 604,100: 17x27".to_string();
+        assert_eq!(test_claim, parse_claim(test_input));
+    }
+}

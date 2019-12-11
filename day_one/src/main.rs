@@ -31,5 +31,6 @@ fn calculate_first_duplicate_freq(input: &Vec<isize>) -> isize {
         .find_map(|change| {
             sum += change;
             seen_freq.replace(sum)
-        }).unwrap()
+        })
+        .unwrap()
 }
